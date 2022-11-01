@@ -13,6 +13,21 @@ public class PlayerController : MonoBehaviour
     public float turnSmooothTime = 0.1f;
     float turnSmoothVelocity;
 
+    [Header("GroundCheck")]
+    [SerializeField] bool _playerIsGrounded = true;
+    [SerializeField] [Range(0.0f, 1.0f)] float _groundCheckRadianMultiplier = 0.9f;
+    [SerializeField] [Range(-0.95f, 1.05f)] float _groundCheckDistance = 0.05f;
+    RaycastHit _groundCheckHit = new RaycastHit();
+
+    [Header("Gravity")]
+    [SerializeField] float _gravityFallcurrent = -100.0f;
+    [SerializeField] float _gravityFallMin = -100.0f;
+    [SerializeField] float _gravityFallMax = 500.0f;
+    [SerializeField] [Range(-5.0f, -35.0f)] float _gravityFallIncrementAmount = -20.0f;
+    [SerializeField] float _gravityFallIncrementTime = 0.05f;
+    [SerializeField] float _playerFallTimer = 0.0f;
+    [SerializeField] float _gravity = 0.0f;
+
     // Update is called once per frame
     void Update()
     {
