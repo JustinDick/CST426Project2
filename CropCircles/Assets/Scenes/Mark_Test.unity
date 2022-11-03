@@ -474,10 +474,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iSeeYouText: {fileID: 1445274152}
   currentEnemyState: 0
-  enemySpeed: 9
   waypointWaitTime: 3
-  chaseTimeOut: 5
+  patrolSpeed: 4
+  chaseTimeOut: 10
   lostPlayerTimeOut: 0
+  chaseSpeed: 8
   attackDamage: 10
   attackCooldown: 5
   attackRange: 10

@@ -29,19 +29,20 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent enemyNavMeshAgent;
     //enemy field of view script 
     private FieldOfView enemyFOV;
-
-
-    public float enemySpeed = 9f;
+    
 
     
 
     [Header("Patrolling State")]
     public float waypointWaitTime = 3f;
+
+    public float patrolSpeed = 4f;
     
 
     [Header("Chase State")] 
     public float chaseTimeOut = 5f;
     public float lostPlayerTimeOut = 0f;
+    public float chaseSpeed = 8f;
     
 
     [Header("Attack state")] 
@@ -138,6 +139,8 @@ public class Enemy : MonoBehaviour
     {
         currentEnemyState = EnemyState.Patrol;
 
+        enemyNavMeshAgent.speed = patrolSpeed;
+
         
         //choose a random waypoint
         Transform randomWaypoint = waypoints[Random.Range(0, waypoints.Length)];
@@ -196,7 +199,8 @@ public class Enemy : MonoBehaviour
 
         Transform playerTransform = enemyFOV.playerRef.transform;
 
-        
+        //Change enemy speed to chase speed.
+        enemyNavMeshAgent.speed = chaseSpeed;
         
 
         while (currentEnemyState == EnemyState.Chasing)
