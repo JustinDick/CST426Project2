@@ -22,11 +22,13 @@ namespace Animal
                 Animal newAnimal = new Animal(randomNum, animalPrefabs[randomNum]);
                 flyweightAnimals.Add(newAnimal);
 
-
                 int randomSpawn = Random.Range(0, 14);
-                GameObject finsihedAnimal = Instantiate(newAnimal.animalPrefab, spawnLocations[randomSpawn].position, Quaternion.identity);
                 
-
+                // instantiate the animal from the list
+                GameObject finsihedAnimal = Instantiate(flyweightAnimals[i].animalPrefab, spawnLocations[randomSpawn].position, Quaternion.identity);
+                
+                // set the speed of the animal
+                finsihedAnimal.GetComponent<AnimalMovement>().movement = flyweightAnimals[i].movementSpeed;
             }
         }
     }
