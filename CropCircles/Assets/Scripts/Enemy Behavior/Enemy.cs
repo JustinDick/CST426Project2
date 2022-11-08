@@ -17,20 +17,25 @@ public class Enemy : MonoBehaviour
     {
         Idle,
         Patrol,
-        Chasing,
+        Chase,
         Attack,
         Rampage
     }
+    
+    
+    
 
     //Enemey state
     public EnemyState currentEnemyState;
 
+    private Animator enemyAnimator;
     private Rigidbody enemyRigidbody;
     private NavMeshAgent enemyNavMeshAgent;
     //enemy field of view script 
     private FieldOfView enemyFOV;
     
-
+    
+    
     
 
     [Header("Patrolling State")]
@@ -65,6 +70,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         //grab components
+        enemyAnimator = GetComponent<Animator>();
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
         enemyRigidbody = GetComponent<Rigidbody>();
         enemyFOV = GetComponent<FieldOfView>();
@@ -74,7 +80,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         //start game with enemy patrolling
-        StartCoroutine(EnemyState_Patrol());
+        StartCoroutine(EnemyState_Idle());
     }
     
 
@@ -103,13 +109,19 @@ public class Enemy : MonoBehaviour
     public IEnumerator EnemyState_Idle()
     {
         currentEnemyState = EnemyState.Idle;
-        
 
+        //stop agent
+        enemyNavMeshAgent.isStopped = true;
+        
+        //isIdle
+        enemyAnimator.SetBool("isIdle", true);
+        
         while (currentEnemyState == EnemyState.Idle)
         {
             if (enemyFOV.canSeePlayer)
             {
                 //If can see player start chasing.
+                enemyAnimator.SetBool("isIdle", false);
                 StartCoroutine(EnemyState_Chase());
                 yield break;
             }
@@ -124,21 +136,18 @@ public class Enemy : MonoBehaviour
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     //ENEMY PATROL STATE
     public IEnumerator EnemyState_Patrol()
     {
         currentEnemyState = EnemyState.Patrol;
 
+        //make sure nav mesh is not stopped.
+        enemyNavMeshAgent.isStopped = false;
+        
+        //Change animation
+        enemyAnimator.SetBool("isPatrolling", true);
+        
         enemyNavMeshAgent.speed = patrolSpeed;
 
         
@@ -160,6 +169,7 @@ public class Enemy : MonoBehaviour
             if (enemyFOV.canSeePlayer)
             {
                 Debug.Log("I see the player! I will begin chasing!");
+                enemyAnimator.SetBool("isPatrolling", false);
                 StartCoroutine(EnemyState_Chase());
                 yield break;
             }
@@ -184,26 +194,23 @@ public class Enemy : MonoBehaviour
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     public IEnumerator EnemyState_Chase()
     {
-        currentEnemyState = EnemyState.Chasing;
+        currentEnemyState = EnemyState.Chase;
+        
 
-
+        enemyAnimator.SetBool("isChasing", true);
+        
         Transform playerTransform = enemyFOV.playerRef.transform;
 
+        //make sure nav mesh is not stopped.
+        enemyNavMeshAgent.isStopped = true;
+        
         //Change enemy speed to chase speed.
         enemyNavMeshAgent.speed = chaseSpeed;
         
 
-        while (currentEnemyState == EnemyState.Chasing)
+        while (currentEnemyState == EnemyState.Chase)
         {
             
             enemyNavMeshAgent.SetDestination(playerTransform.position);
@@ -220,6 +227,13 @@ public class Enemy : MonoBehaviour
 
                     enemyNavMeshAgent.SetDestination(playerTransform.position);
 
+                    if (enemyFOV.canSeePlayer)
+                    {
+                        enemyAnimator.SetBool("isChasing", false);
+                        StartCoroutine(EnemyState_Attack());
+                        yield break;
+                    }
+
                     yield return null;
 
 
@@ -229,6 +243,7 @@ public class Enemy : MonoBehaviour
                         if (!enemyFOV.canSeePlayer)
                         {
                             lostPlayerTimeOut = 0f;
+                            enemyAnimator.SetBool("isChasing", false);
                             StartCoroutine(EnemyState_Patrol());
                             yield break;
                         }
@@ -243,8 +258,9 @@ public class Enemy : MonoBehaviour
             }
 
             //if in range to attack
-            if (Vector3.Distance(playerTransform.position, transform.position) <= attackRange  && enemyFOV.canSeePlayer) 
+            if (Vector3.Distance(playerTransform.position, transform.position) <= attackRange  || enemyFOV.canSeePlayer) 
             {
+                enemyAnimator.SetBool("isChasing", false);
                 StartCoroutine(EnemyState_Attack());
                 yield break;
             }
@@ -269,9 +285,12 @@ public class Enemy : MonoBehaviour
     {
         currentEnemyState = EnemyState.Attack;
         
+        enemyAnimator.SetBool("isAttacking", true);
         
         Transform playerTransform = enemyFOV.playerRef.transform;
+        transform.LookAt(playerTransform);
 
+        //stop to attack
         enemyNavMeshAgent.isStopped = true;
         
         Debug.Log("I'm in attack mode!");
@@ -280,11 +299,14 @@ public class Enemy : MonoBehaviour
         
         while (currentEnemyState == EnemyState.Attack)
         {
+            
+            
             elaspedTime += Time.deltaTime;
             
             //player can't be seen or player has left attack range
             if (!enemyFOV.canSeePlayer || Vector3.Distance(playerTransform.position, transform.position) > attackRange)
             {
+                enemyAnimator.SetBool("isAttacking", false);
                 StartCoroutine(EnemyState_Chase());
                 yield break;
             }
@@ -312,7 +334,8 @@ public class Enemy : MonoBehaviour
     public IEnumerator EnemyState_Rampage()
     {
         currentEnemyState = EnemyState.Rampage;
-
+        
+        
         while (currentEnemyState == EnemyState.Rampage)
         {
             yield return null;
