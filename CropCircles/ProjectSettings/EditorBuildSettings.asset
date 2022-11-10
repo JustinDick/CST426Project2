@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/CropCircleAssets/Main Menu.unity
+    guid: d49626ca354ffcd479e8844932697d18
+  - enabled: 1
+    path: Assets/CropCircleAssets/FarmScene.unity
+    guid: 47c54e1bf2579f84a857f2baa69f4952
+  - enabled: 1
+    path: Assets/Scenes/Mark_Test.unity
+    guid: c488074a06b1cdb47b1213104471ef2b
   m_configObjects: {}
