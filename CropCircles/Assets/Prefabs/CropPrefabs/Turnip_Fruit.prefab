@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7315095057946239659}
   m_Layer: 0
   m_Name: Turnip_Fruit
-  m_TagString: Untagged
+  m_TagString: Crop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,4 +130,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 0
   maxScale: 0
+  growthRate: 0
   cropBody: {fileID: 0}

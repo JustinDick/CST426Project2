@@ -9,6 +9,10 @@ public class CropGrowthScript : MonoBehaviour
 	public float maxScale;
 	public float growthRate;
 
+	public string name;
+
+	public int value;
+
 	public Rigidbody cropBody;
     // Start is called before the first frame update
     void Start()
@@ -29,4 +33,9 @@ public class CropGrowthScript : MonoBehaviour
 		}
 
     }
+
+	public void resetSize(){
+	
+		scale = 0.0f;
+	}
 }

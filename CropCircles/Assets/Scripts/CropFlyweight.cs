@@ -22,6 +22,8 @@ namespace Crop
                 GameObject finishedCrop = Instantiate(flyweightCrops[i].cropPrefab, spawnLocations[i].position, Quaternion.identity);
 
 				finishedCrop.GetComponent<CropGrowthScript>().growthRate = flyweightCrops[i].regrowthRate;
+				finishedCrop.GetComponent<CropGrowthScript>().name = flyweightCrops[i].name;
+				finishedCrop.GetComponent<CropGrowthScript>().value = flyweightCrops[i].value;
             }
         }
 

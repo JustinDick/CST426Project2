@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8269081620294716732}
   m_Layer: 0
   m_Name: Pig
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7a4a385960e124e9417b1d76320703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 0}
   movement: 0
+  waitTimer: 0
+  waitMax: 0
+  rotationAmount: 0
+  isWaiting: 0
 --- !u!54 &-827487314874157309
 Rigidbody:
   m_ObjectHideFlags: 0

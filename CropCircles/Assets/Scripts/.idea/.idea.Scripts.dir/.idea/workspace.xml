@@ -13,6 +13,8 @@
     <setting file="file://$PROJECT_DIR$/AnimalMovement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Crop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CropGrowthScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ModelChanger.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PlayerManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,6 +46,8 @@
       <workItem from="1667451586749" duration="8994000" />
       <workItem from="1667791379165" duration="1867000" />
       <workItem from="1667887609078" duration="1746000" />
+      <workItem from="1667977614733" duration="6577000" />
+      <workItem from="1668053828465" duration="2901000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,8 @@ public class AnimalMovement : MonoBehaviour
 {
 	Rigidbody animalBody;
 
+	public GameObject animalPrefab;
+
 	// values for movement:
     public float movement;
 	
@@ -26,6 +28,8 @@ public class AnimalMovement : MonoBehaviour
 
 
 	public bool isWaiting;
+
+	public string name;
 
     // Start is called before the first frame update
     void Start()

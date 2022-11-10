@@ -17,7 +17,7 @@ namespace Animal
             for (int i = 0; i < 10; i++)
             {
                 // make a random number
-                int randomNum = Random.Range(0, 4);
+                int randomNum = Random.Range(0, 5);
                 
                 Animal newAnimal = new Animal(randomNum, animalPrefabs[randomNum]);
                 flyweightAnimals.Add(newAnimal);
@@ -29,6 +29,12 @@ namespace Animal
                 
                 // set the speed of the animal
                 finsihedAnimal.GetComponent<AnimalMovement>().movement = flyweightAnimals[i].movementSpeed;
+                
+                // set model for the player to copy
+                finsihedAnimal.GetComponent<AnimalMovement>().animalPrefab = flyweightAnimals[i].animalPrefab;
+                
+                // set the name of the animal
+                finsihedAnimal.GetComponent<AnimalMovement>().name = flyweightAnimals[i].name;
             }
         }
     }

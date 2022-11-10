@@ -10,6 +10,7 @@ namespace Crop
         public float regrowthRate;
         public GameObject cropPrefab;
         public string name;
+		public int value;
 
         public Crop(int CropNum, GameObject CropPrefab)
         {
@@ -51,36 +52,42 @@ namespace Crop
         {
             this.regrowthRate = 1.2f;
             this.name = "carrot";
+			this.value = 10;
         }
         
         public void setCorn()
         {
             this.regrowthRate = 0.3f;
             this.name = "corn";
+			this.value = 50;
         }
         
         public void setEggplant()
         {
             this.regrowthRate = 0.8f;
             this.name = "eggplant";
+			this.value = 25;
         }
         
         public void setPumpkin()
         {
             this.regrowthRate = 0.5f;
             this.name = "pumpkin";
+			this.value = 75;
         }
         
         public void setTomato()
         {
             this.regrowthRate = 1.0f;
             this.name = "tomato";
+			this.value = 15;
         }
         
         public void setTurnip()
         {
             this.regrowthRate = 1.1f;
             this.name = "turnip";
+			this.value = 10;
         }
     }
 }
