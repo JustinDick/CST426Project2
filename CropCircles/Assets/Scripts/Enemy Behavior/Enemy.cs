@@ -41,13 +41,13 @@ public class Enemy : MonoBehaviour
     [Header("Patrolling State")]
     public float waypointWaitTime = 3f;
 
-    public float patrolSpeed = 4f;
+    public float patrolSpeed = 2f;
     
 
     [Header("Chase State")] 
-    public float chaseTimeOut = 5f;
+    public float chaseTimeOut = 8f;
     public float lostPlayerTimeOut = 0f;
-    public float chaseSpeed = 8f;
+    public float chaseSpeed = 6f;
     
 
     [Header("Attack state")] 
@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         //start game with enemy patrolling
-        StartCoroutine(EnemyState_Idle());
+        StartCoroutine(EnemyState_Patrol());
     }
     
 
@@ -157,7 +157,7 @@ public class Enemy : MonoBehaviour
         //have farmer bill go to it.
         enemyNavMeshAgent.SetDestination(randomWaypoint.position);
 
-        Debug.Log("I'm going to " + randomWaypoint.position);
+        //Debug.Log("I'm going to " + randomWaypoint.position);
 
         
         //While in patrol state
@@ -193,7 +193,7 @@ public class Enemy : MonoBehaviour
     
     
     
-    
+    //ENEMY CHASE STATE
     public IEnumerator EnemyState_Chase()
     {
         currentEnemyState = EnemyState.Chase;
@@ -229,6 +229,9 @@ public class Enemy : MonoBehaviour
 
                     if (enemyFOV.canSeePlayer)
                     {
+                        //reset lost player
+                        lostPlayerTimeOut = 0;
+                        //shoot at player if can see them
                         enemyAnimator.SetBool("isChasing", false);
                         StartCoroutine(EnemyState_Attack());
                         yield break;
@@ -240,9 +243,21 @@ public class Enemy : MonoBehaviour
                     //If we don't have sight on the player for 'chaseTimeout' amount of time we go back to patrolling.
                     if (lostPlayerTimeOut >= chaseTimeOut)
                     {
+                        
+
                         if (!enemyFOV.canSeePlayer)
                         {
                             lostPlayerTimeOut = 0f;
+                            
+                            //disable nav mesh to prevent enemy from moving during animation
+                            enemyNavMeshAgent.isStopped = true;
+                            //play roar animation
+                            enemyAnimator.SetTrigger("Roar");
+                            yield return new WaitForSeconds(5.5f);
+                            //reactivate nav mesh so enemy can continue to move
+                            enemyNavMeshAgent.isStopped = false;
+                            
+                            
                             enemyAnimator.SetBool("isChasing", false);
                             StartCoroutine(EnemyState_Patrol());
                             yield break;
@@ -269,6 +284,7 @@ public class Enemy : MonoBehaviour
             yield return null;
         }
     }
+    
 
 
     
