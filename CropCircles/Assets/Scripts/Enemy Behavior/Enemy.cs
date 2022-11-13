@@ -46,11 +46,15 @@ public class Enemy : MonoBehaviour
 
     [Header("Chase State")] 
     public float chaseTimeOut = 8f;
-    public float lostPlayerTimeOut = 0f;
+    [SerializeField] private float lostPlayerTimeOut = 0f;
     public float chaseSpeed = 6f;
-    
 
-    [Header("Attack state")] 
+
+    [Header("Attack state")]
+    [SerializeField]private Transform bulletExit;
+    [SerializeField] private GameObject sleepingGas;
+    private Transform playersLastKnownLocation;
+    [SerializeField] private float fireElapsedTime = 0f;
     public float attackDamage = 10f;
     public float attackCooldown = 5f;
     public float attackRange = 0.5f;
@@ -300,46 +304,80 @@ public class Enemy : MonoBehaviour
     public IEnumerator EnemyState_Attack()
     {
         currentEnemyState = EnemyState.Attack;
-        
-        enemyAnimator.SetBool("isAttacking", true);
-        
+
         Transform playerTransform = enemyFOV.playerRef.transform;
-        transform.LookAt(playerTransform);
+        //transform.LookAt(playerTransform);
 
         //stop to attack
         enemyNavMeshAgent.isStopped = true;
         
-        Debug.Log("I'm in attack mode!");
-
-        float elaspedTime = 0f;
+        
+        //Ready to fire
+        if (fireElapsedTime >= attackCooldown)
+        {
+            enemyAnimator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            //if able to fire going into firing animation, else go into reloading animation
+            enemyAnimator.SetBool("isAttacking", false);
+            enemyAnimator.SetBool("isReloading", true);
+        }
+        
         
         while (currentEnemyState == EnemyState.Attack)
         {
+
+            transform.LookAt(playerTransform);
+
+            //if enemy is reloading increment time until next fire
+            if (enemyAnimator.GetBool("isReloading"))
+            {
+                fireElapsedTime += Time.deltaTime;
+            }
             
-            
-            elaspedTime += Time.deltaTime;
+
+            if (enemyFOV.canSeePlayer)
+            {
+                playersLastKnownLocation = playerTransform;
+            }
             
             //player can't be seen or player has left attack range
             if (!enemyFOV.canSeePlayer || Vector3.Distance(playerTransform.position, transform.position) > attackRange)
             {
+                enemyAnimator.SetBool("isReloading", false);
                 enemyAnimator.SetBool("isAttacking", false);
                 StartCoroutine(EnemyState_Chase());
                 yield break;
             }
 
-            //player's attack cooldown
-            if (elaspedTime >= attackCooldown)
+            //enemy's attack cooldown
+            if (fireElapsedTime >= attackCooldown)
             {
-                //timer reset
-                elaspedTime = 0f;
+                enemyAnimator.SetBool("isReloading", false);
+                enemyAnimator.SetBool("isAttacking", true);
+                
                 
                 //enemy attacks
                 Debug.Log("Farmer bill has just attacked!");
             }
+          
             
             
             yield return null;
         }
+    }
+
+
+    public void ShotGunAttack()
+    {
+        //spawn sleeping gas on player
+        Instantiate(sleepingGas, playersLastKnownLocation.position, sleepingGas.transform.rotation);
+        //timer reset
+        fireElapsedTime = 0f;
+        enemyAnimator.SetBool("isAttacking", false);
+        enemyAnimator.SetBool("isReloading", true);
+        
     }
 
     
