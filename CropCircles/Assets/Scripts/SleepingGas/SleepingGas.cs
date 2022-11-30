@@ -8,6 +8,20 @@ public class SleepingGas : MonoBehaviour
 
     private float elapsedTime;
     public float timeUntilDestroy = 10f;
+    public int gasDamage = 1;
+    public float gasInterval = 1f;
+    private bool isInGas;
+
+
+
+    public GameObject playerRef;
+
+    private void Start()
+    {
+        isInGas = false;
+        playerRef = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(InGasCheck());
+    }
 
 
     private void Update()
@@ -21,18 +35,43 @@ public class SleepingGas : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+
     }
+
+
+    private IEnumerator InGasCheck()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(gasInterval);
+            if (isInGas)
+            {
+                playerRef.GetComponent<PlayerHealth>().currentHealth -= gasDamage;  
+            }
+            
+        }
+    }
+
+
+   
+    
 
 
     private void OnTriggerEnter(Collider other)
     {
-        //do damage over time
+        //while in gas do damage
         if (other.gameObject.CompareTag("Player"))
         {
-            //player take damage
-            Debug.Log("Player is taking damage");
+            isInGas = true;
         }
     }
-    
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        //step out of gas
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isInGas = false;
+        }
+    }
 }
