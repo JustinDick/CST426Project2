@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //To be removed
+        /*//To be removed
         if (enemyFOV.canSeePlayer)
         {
             iSeeYouText.text = "I SEE YOU !!0__0!!";
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
         else
         {
             iSeeYouText.text = "";
-        }
+        }*/
         
         
         

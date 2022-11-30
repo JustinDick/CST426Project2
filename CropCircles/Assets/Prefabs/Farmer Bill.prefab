@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &11274572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11274573}
+  m_Layer: 0
+  m_Name: BulletExit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &11274573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11274572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0089, z: 0.05935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3502436341505695893}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &173268734
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,8 +971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d6cb32f20481b498d23a0676c43c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectionRadius: 12
-  angle: 100
+  DetectionRadius: 15
+  angle: 120
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
@@ -965,14 +996,32 @@ MonoBehaviour:
   iSeeYouText: {fileID: 0}
   currentEnemyState: 0
   waypointWaitTime: 3
-  patrolSpeed: 2.5
-  chaseTimeOut: 10
+  patrolSpeed: 2
+  chaseTimeOut: 8
   lostPlayerTimeOut: 0
   chaseSpeed: 6
+  bulletExit: {fileID: 11274573}
+  sleepingGas: {fileID: 2025291840819693968, guid: 269019a3848a98844b7f6ece616d21a9, type: 3}
+  fireElapsedTime: 0
   attackDamage: 10
-  attackCooldown: 5
+  attackCooldown: 3
   attackRange: 20
   waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
