@@ -4839,4 +4839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6eec08924db8894f996fd4d5c852ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilDestroy: 10
+  timeUntilDestroy: 15
+  gasDamage: 5
+  gasInterval: 0.1
+  playerRef: {fileID: 0}

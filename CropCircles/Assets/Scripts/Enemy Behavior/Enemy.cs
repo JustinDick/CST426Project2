@@ -359,7 +359,7 @@ public class Enemy : MonoBehaviour
                 
                 
                 //enemy attacks
-                Debug.Log("Farmer bill has just attacked!");
+                //Debug.Log("Farmer bill has just attacked!");
             }
           
             

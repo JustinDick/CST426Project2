@@ -17,6 +17,11 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        if (healthBar == null)
+        {
+            healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
+
+        }
     }
 
     // Update is called once per frame

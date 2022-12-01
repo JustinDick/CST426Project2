@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Animal
   - PlayerEyes
+  - HealthBar
   layers:
   - Default
   - TransparentFX
