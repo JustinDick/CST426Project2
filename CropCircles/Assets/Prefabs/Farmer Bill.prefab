@@ -971,8 +971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d6cb32f20481b498d23a0676c43c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectionRadius: 15
-  angle: 120
+  DetectionRadius: 20
+  angle: 110
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
@@ -996,7 +996,7 @@ MonoBehaviour:
   iSeeYouText: {fileID: 0}
   currentEnemyState: 0
   waypointWaitTime: 3
-  patrolSpeed: 2
+  patrolSpeed: 2.5
   chaseTimeOut: 8
   lostPlayerTimeOut: 0
   chaseSpeed: 6
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   fireElapsedTime: 0
   attackDamage: 10
   attackCooldown: 3
-  attackRange: 20
+  attackRange: 25
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
