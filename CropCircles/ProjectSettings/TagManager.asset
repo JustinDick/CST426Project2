@@ -8,6 +8,8 @@ TagManager:
   - Animal
   - Crop
   - Hopper
+  - HealthBar
+
   layers:
   - Default
   - TransparentFX
