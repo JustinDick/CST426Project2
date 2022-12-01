@@ -21,7 +21,7 @@ public class ModelChanger : MonoBehaviour
 	// set time limit for transformation
 	private float transformDuration;
 	private float timer;
-	private bool hasTransformed;
+	public static bool hasTransformed;
 
     // Start is called before the first frame update
     void Start()
@@ -54,8 +54,8 @@ public class ModelChanger : MonoBehaviour
         if (name == "cow")
         {
 			// change the mesh
-			playerMesh = currentModel.GetComponent<MeshFilter>();
-			playerMesh.sharedMesh = cowMesh;
+			//playerMesh = currentModel.GetComponent<MeshFilter>();
+			//playerMesh.sharedMesh = cowMesh;
 			hasTransformed = true;
         }
         
@@ -63,8 +63,8 @@ public class ModelChanger : MonoBehaviour
         if (name == "chicken")
         {
 			// change the mesh
-            playerMesh = currentModel.GetComponent<MeshFilter>();
-			playerMesh.sharedMesh = chickenMesh;
+            //playerMesh = currentModel.GetComponent<MeshFilter>();
+			//playerMesh.sharedMesh = chickenMesh;
 			hasTransformed = true;
         }
         
@@ -72,8 +72,8 @@ public class ModelChanger : MonoBehaviour
         if (name == "duck")
         {
 			// change the mesh
-           	playerMesh = currentModel.GetComponent<MeshFilter>();
-			playerMesh.sharedMesh = duckMesh;
+           	//playerMesh = currentModel.GetComponent<MeshFilter>();
+			//playerMesh.sharedMesh = duckMesh;
 			hasTransformed = true;
         }
         
@@ -81,8 +81,8 @@ public class ModelChanger : MonoBehaviour
         if (name == "pig")
         {
 			// change the mesh
-            playerMesh = currentModel.GetComponent<MeshFilter>();
-			playerMesh.sharedMesh = pigMesh;
+            //playerMesh = currentModel.GetComponent<MeshFilter>();
+			//playerMesh.sharedMesh = pigMesh;
 			hasTransformed = true;
         }
         
@@ -90,8 +90,8 @@ public class ModelChanger : MonoBehaviour
         if (name == "sheep")
         {
 			// change the mesh
-            playerMesh = currentModel.GetComponent<MeshFilter>();
-			playerMesh.sharedMesh = sheepMesh;
+            //playerMesh = currentModel.GetComponent<MeshFilter>();
+			//playerMesh.sharedMesh = sheepMesh;
 			hasTransformed = true;
         }
     }

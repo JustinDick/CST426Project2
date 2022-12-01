@@ -25,7 +25,8 @@ namespace Animal
                 int randomSpawn = Random.Range(0, 14);
                 
                 // instantiate the animal from the list
-                GameObject finsihedAnimal = Instantiate(flyweightAnimals[i].animalPrefab, spawnLocations[randomSpawn].position, Quaternion.identity);
+               //GameObject finsihedAnimal = Instantiate(flyweightAnimals[i].animalPrefab, spawnLocations[randomSpawn].position, Quaternion.identity);
+                GameObject finsihedAnimal = Instantiate(flyweightAnimals[i].animalPrefab, spawnLocations[i].position, Quaternion.identity);
                 
                 // set the speed of the animal
                 finsihedAnimal.GetComponent<AnimalMovement>().movement = flyweightAnimals[i].movementSpeed;

@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Animal
   - PlayerEyes
+  - Animal
+  - Crop
+  - Hopper
   - HealthBar
+
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - Target
-  - Obstruction
+  - 
+  - 
   - 
   - 
   - 
