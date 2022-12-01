@@ -8,8 +8,8 @@ public class SleepingGas : MonoBehaviour
 
     private float elapsedTime;
     public float timeUntilDestroy = 10f;
-    public int gasDamage = 1;
-    public float gasInterval = 1f;
+    public float gasDamage = 5f;
+    public float gasInterval = 0.5f;
     private bool isInGas;
 
 
