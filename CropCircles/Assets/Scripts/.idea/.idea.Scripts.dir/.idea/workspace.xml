@@ -8,6 +8,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/ChickenRender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/CowRender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/DuckRender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/PigRender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/PlayerRenderScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/RenderChanger.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/RenderTestScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/SheepRender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/UIButtonScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Animal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AnimalFlyweightScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AnimalMovement.cs" root0="SKIP_HIGHLIGHTING" />
@@ -48,6 +57,8 @@
       <workItem from="1667887609078" duration="1746000" />
       <workItem from="1667977614733" duration="6577000" />
       <workItem from="1668053828465" duration="2901000" />
+      <workItem from="1669703365636" duration="822000" />
+      <workItem from="1669881058248" duration="10809000" />
     </task>
     <servers />
   </component>

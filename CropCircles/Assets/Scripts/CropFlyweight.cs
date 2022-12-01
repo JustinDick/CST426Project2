@@ -8,7 +8,7 @@ namespace Crop
     {
         // holds the list of crops
         private List<Crop> flyweightCrops = new List<Crop>();
-        public Transform[] spawnLocations = new Transform[42];
+        public Transform[] spawnLocations = new Transform[30];
         public GameObject[] cropPrefabs = new GameObject[6];
         // Start is called before the first frame update
         void Start()
@@ -16,7 +16,7 @@ namespace Crop
             // create the crops
             for (int i = 0; i < spawnLocations.Length; i++)
             {
-                Crop newCrop = new Crop(i/7, cropPrefabs[i/7]);
+                Crop newCrop = new Crop(i/5, cropPrefabs[i/5]);
                 flyweightCrops.Add(newCrop);
                 
                 GameObject finishedCrop = Instantiate(flyweightCrops[i].cropPrefab, spawnLocations[i].position, Quaternion.identity);
