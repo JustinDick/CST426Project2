@@ -122,7 +122,7 @@ public class Enemy : MonoBehaviour
         
         while (currentEnemyState == EnemyState.Idle)
         {
-            if (enemyFOV.canSeePlayer)
+            if (enemyFOV.canSeePlayer && ModelChanger.hasTransformed == false)
             {
                 //If can see player start chasing.
                 enemyAnimator.SetBool("isIdle", false);
@@ -170,7 +170,7 @@ public class Enemy : MonoBehaviour
             
             
             //transition out of patrol state, into chase state
-            if (enemyFOV.canSeePlayer)
+            if (enemyFOV.canSeePlayer && ModelChanger.hasTransformed == false)
             {
                 Debug.Log("I see the player! I will begin chasing!");
                 enemyAnimator.SetBool("isPatrolling", false);
@@ -231,7 +231,7 @@ public class Enemy : MonoBehaviour
 
                     enemyNavMeshAgent.SetDestination(playerTransform.position);
 
-                    if (enemyFOV.canSeePlayer)
+                    if (enemyFOV.canSeePlayer && ModelChanger.hasTransformed == false)
                     {
                         //reset lost player
                         lostPlayerTimeOut = 0;
@@ -277,7 +277,7 @@ public class Enemy : MonoBehaviour
             }
 
             //if in range to attack
-            if (Vector3.Distance(playerTransform.position, transform.position) <= attackRange  || enemyFOV.canSeePlayer) 
+            if (Vector3.Distance(playerTransform.position, transform.position) <= attackRange  || enemyFOV.canSeePlayer && ModelChanger.hasTransformed == false) 
             {
                 enemyAnimator.SetBool("isChasing", false);
                 StartCoroutine(EnemyState_Attack());
@@ -337,7 +337,7 @@ public class Enemy : MonoBehaviour
             }
             
 
-            if (enemyFOV.canSeePlayer)
+            if (enemyFOV.canSeePlayer && ModelChanger.hasTransformed == false)
             {
                 playersLastKnownLocation = playerTransform;
             }
