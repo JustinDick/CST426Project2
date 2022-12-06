@@ -37,12 +37,14 @@ public class PlayerManager : MonoBehaviour
 	public static int tomatoCount;
 	public static int turnipCount;
 
+	public GameObject UIScript;
+
 	// Start is called before the first frame update
     void Start()
     {
         touchingCrop = false;
         touchingAnimal = false;
-		touchingHopper = true;
+		touchingHopper = false;
         score = 0;
 
 		chickenReady = false;
@@ -80,38 +82,46 @@ public class PlayerManager : MonoBehaviour
 
                 cropName = targetCrop.GetComponent<CropGrowthScript>().name;
 
-                Debug.Log(cropName);
+                //Debug.Log(cropName);
                 
-                if (cropName == "carrot")
+                UIScript.GetComponent<CropUIScript>().AddCrop(cropName);
+                
+                /*if (cropName == "carrot")
                 {
-	                carrotCount += 1;
-	                Debug.Log(carrotCount);
+	                UIScript.GetComponent<CropUIScript>().AddCarrot();
+	                //carrotCount = carrotCount + 1;
+	                //Debug.Log(carrotCount);
                 }
 
                 if (cropName == "corn")
                 {
-	                cornCount += 1;
+	                //cornCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddCorn();
                 }
 
                 if (cropName == "eggplant")
                 {
-	                eggplantCount += 1;
+	                //eggplantCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddEggplant();
                 }
 
                 if (cropName == "pumpkin")
                 {
-	                pumpkinCount += 1;
+	                //pumpkinCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddPumpkin();
                 }
 
                 if (cropName == "tomato")
                 {
-	                tomatoCount += 1;
+	                //tomatoCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddTomato();
                 }
 
                 if (cropName == "turnip")
                 {
-	                turnipCount += 1;
-                }
+	                //turnipCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddTurnip();
+                }*/
             }
         }
         
@@ -190,13 +200,16 @@ public class PlayerManager : MonoBehaviour
 			// reset score
 			score = 0;
 			
+			UIScript.GetComponent<CropUIScript>().ResetCrops();
+			Debug.Log("Crops Reset");
+			
 			// reset crop count
-			carrotCount = 0;
+			/*carrotCount = 0;
 			cornCount = 0;
 			eggplantCount = 0;
 			pumpkinCount = 0;
 			tomatoCount = 0;
-			turnipCount = 0;
+			turnipCount = 0;*/
         }
 
         if (Input.GetKeyDown(KeyCode.P))

@@ -6373,6 +6373,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
   isTransformed: 0
+--- !u!1 &1419212853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7863630096565537681, guid: 4a579ab3e73d6fc48b7336c6d04fb4a1, type: 3}
+  m_PrefabInstance: {fileID: 7863630097079352673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1438892748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8235,6 +8240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   modelManager: {fileID: 1458913152}
+  UIScript: {fileID: 1419212853}
 --- !u!65 &1735981448
 BoxCollider:
   m_ObjectHideFlags: 0

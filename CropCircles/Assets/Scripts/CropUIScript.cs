@@ -33,12 +33,14 @@ public class CropUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    carrotCount = PlayerManager.carrotCount;
+	    /*carrotCount = PlayerManager.carrotCount;
 	    cornCount = PlayerManager.cornCount;
 	    eggplantCount = PlayerManager.eggplantCount;
 	    pumpkinCount = PlayerManager.pumpkinCount;
 	    tomatoCount = PlayerManager.tomatoCount;
-	    turnipCount = PlayerManager.turnipCount;
+	    turnipCount = PlayerManager.turnipCount;*/
+
+	    //Debug.Log(PlayerManager.carrotCount);
 
 	    carrotText.text = "X " + carrotCount;
         cornText.text = "X " + cornCount;
@@ -46,5 +48,81 @@ public class CropUIScript : MonoBehaviour
         pumpkinText.text = "X " + pumpkinCount;
         tomatoText.text = "X " + tomatoCount;
         turnipText.text = "X " + turnipCount;
+    }
+
+    public void AddCarrot()
+    {
+	    carrotCount+=1;
+    }
+
+    public void AddCorn()
+    {
+	    cornCount+=1;
+    }
+
+    public void AddEggplant()
+    {
+	    eggplantCount+=1;
+    }
+
+    public void AddPumpkin()
+    {
+	    pumpkinCount+=1;
+    }
+
+    public void AddTomato()
+    {
+	    tomatoCount+=1;
+    }
+
+    public void AddTurnip()
+    {
+	    turnipCount+=1;
+    }
+
+    public void ResetCrops()
+    {
+	    carrotCount = 0;
+	    cornCount = 0;
+	    eggplantCount = 0;
+	    pumpkinCount = 0;
+	    tomatoCount = 0;
+	    turnipCount = 0;
+    }
+
+    public void AddCrop(string cropName)
+    {
+	    Debug.Log(cropName);
+	    if (cropName == "carrot")
+	    {
+		    Debug.Log("I Worked!");
+		    carrotCount++;
+		    Debug.Log(carrotCount);
+	    }
+
+	    if (cropName == "corn")
+	    {
+		    cornCount += 1;
+	    }
+
+	    if (cropName == "eggplant")
+	    {
+		    eggplantCount += 1;
+	    }
+
+	    if (cropName == "pumpkin")
+	    {
+		    pumpkinCount += 1;
+	    }
+
+	    if (cropName == "tomato")
+	    {
+		    tomatoCount += 1;
+	    }
+
+	    if (cropName == "turnip")
+	    {
+		    turnipCount += 1;
+	    }
     }
 }
