@@ -17,6 +17,7 @@ public class RenderChanger : MonoBehaviour
     public static bool sheepTransformation;
     public static bool pigTransformation;
     public static bool duckTransformation;
+    
     void Start()
     {
         transformDuration = 5.0f;

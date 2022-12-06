@@ -11,8 +11,7 @@ public class UIButtonScript : MonoBehaviour
     public Image ChickenButton;
     public Image PigButton;
     public Image DuckButton;
-
-    public TextMeshProUGUI scoreText;
+    
 
     private int score;
 
@@ -39,8 +38,6 @@ public class UIButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "SCORE: " + score;
-
         cowOn = PlayerManager.cowReady;
 
         if (cowOn)
