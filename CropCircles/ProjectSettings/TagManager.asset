@@ -9,7 +9,7 @@ TagManager:
   - Crop
   - Hopper
   - HealthBar
-
+  - GameOverScreen
   layers:
   - Default
   - TransparentFX
