@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/CropCircleAssets/Main Menu.unity
+    path: Assets/CropCircleAssets/Scene/Main Menu.unity
     guid: d49626ca354ffcd479e8844932697d18
   - enabled: 1
-    path: Assets/CropCircleAssets/FarmScene.unity
+    path: Assets/CropCircleAssets/Scene/FarmScene.unity
     guid: 47c54e1bf2579f84a857f2baa69f4952
   - enabled: 1
     path: Assets/Scenes/Mark_Test.unity
