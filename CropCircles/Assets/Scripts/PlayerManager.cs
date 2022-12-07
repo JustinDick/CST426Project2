@@ -19,19 +19,32 @@ public class PlayerManager : MonoBehaviour
 	// require for checking for hopper
 	private bool touchingHopper;
 
+	private string cropName;
+
 	// holds on to animal transformations
 	public static bool chickenReady;
 	public static bool sheepReady;
 	public static bool duckReady;
 	public static bool pigReady;
 	public static bool cowReady;
-    
-    // Start is called before the first frame update
+
+	public static bool interactReady;
+	
+	public static int carrotCount;
+	public static int cornCount;
+	public static int eggplantCount;
+	public static int pumpkinCount;
+	public static int tomatoCount;
+	public static int turnipCount;
+
+	public GameObject UIScript;
+
+	// Start is called before the first frame update
     void Start()
     {
         touchingCrop = false;
         touchingAnimal = false;
-		touchingHopper = true;
+		touchingHopper = false;
         score = 0;
 
 		chickenReady = false;
@@ -39,6 +52,15 @@ public class PlayerManager : MonoBehaviour
 		duckReady = false;
 		pigReady = false;
 		cowReady = false;
+
+		interactReady = false;
+		
+		carrotCount = 0;
+		cornCount = 0;
+		eggplantCount = 0;
+		pumpkinCount = 0;
+		tomatoCount = 0;
+		turnipCount = 0;
     }
 
     // Update is called once per frame
@@ -57,6 +79,49 @@ public class PlayerManager : MonoBehaviour
                 
                 // add value of crop to score
                 score += targetCrop.GetComponent<CropGrowthScript>().value;
+
+                cropName = targetCrop.GetComponent<CropGrowthScript>().name;
+
+                //Debug.Log(cropName);
+                
+                UIScript.GetComponent<CropUIScript>().AddCrop(cropName);
+                
+                /*if (cropName == "carrot")
+                {
+	                UIScript.GetComponent<CropUIScript>().AddCarrot();
+	                //carrotCount = carrotCount + 1;
+	                //Debug.Log(carrotCount);
+                }
+
+                if (cropName == "corn")
+                {
+	                //cornCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddCorn();
+                }
+
+                if (cropName == "eggplant")
+                {
+	                //eggplantCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddEggplant();
+                }
+
+                if (cropName == "pumpkin")
+                {
+	                //pumpkinCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddPumpkin();
+                }
+
+                if (cropName == "tomato")
+                {
+	                //tomatoCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddTomato();
+                }
+
+                if (cropName == "turnip")
+                {
+	                //turnipCount += 1;
+	                UIScript.GetComponent<CropUIScript>().AddTurnip();
+                }*/
             }
         }
         
@@ -134,6 +199,17 @@ public class PlayerManager : MonoBehaviour
 			
 			// reset score
 			score = 0;
+			
+			UIScript.GetComponent<CropUIScript>().ResetCrops();
+			Debug.Log("Crops Reset");
+			
+			// reset crop count
+			/*carrotCount = 0;
+			cornCount = 0;
+			eggplantCount = 0;
+			pumpkinCount = 0;
+			tomatoCount = 0;
+			turnipCount = 0;*/
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -149,6 +225,8 @@ public class PlayerManager : MonoBehaviour
         {
             touchingCrop = true;
             targetCrop = target;
+
+            interactReady = true;
         }
         
         // check if the collider was an animal
@@ -157,6 +235,8 @@ public class PlayerManager : MonoBehaviour
 			Debug.Log("Found Animal");
             touchingAnimal = true;
             targetAnimal = target;
+            
+            interactReady = true;
         }
 
 		// check if the collider was the hopper
@@ -164,6 +244,8 @@ public class PlayerManager : MonoBehaviour
 		{
 			Debug.Log("Found Hopper");
 			touchingHopper = true;
+			
+			interactReady = true;
 		}
     }
     
@@ -173,16 +255,22 @@ public class PlayerManager : MonoBehaviour
         if(target.gameObject.tag == "Crop")
         {
             touchingCrop = false;
+
+            interactReady = false;
         }
 
         if (target.gameObject.tag == "Animal")
         {
             touchingAnimal = false;
+            
+            interactReady = false;
         }
 
 		if (target.gameObject.tag == "Hopper")
         {
             touchingHopper = false;
+            
+            interactReady = false;
         }
     }
 }
