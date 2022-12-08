@@ -59,28 +59,28 @@ namespace Crop
         {
             this.regrowthRate = 0.3f;
             this.name = "corn";
-			this.value = 50;
+			this.value = 40;
         }
         
         public void setEggplant()
         {
             this.regrowthRate = 0.8f;
             this.name = "eggplant";
-			this.value = 25;
+			this.value = 20;
         }
         
         public void setPumpkin()
         {
             this.regrowthRate = 0.5f;
             this.name = "pumpkin";
-			this.value = 75;
+			this.value = 150;
         }
         
         public void setTomato()
         {
             this.regrowthRate = 1.0f;
             this.name = "tomato";
-			this.value = 15;
+			this.value = 20;
         }
         
         public void setTurnip()

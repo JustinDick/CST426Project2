@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour
 	public static int turnipCount;
 
 	public GameObject UIScript;
+	public GameObject Hopper;
 
 	// Start is called before the first frame update
     void Start()
@@ -198,10 +199,11 @@ public class PlayerManager : MonoBehaviour
             // change progress bar
 			
 			// reset score
+			Hopper.GetComponent<HopperScript>().AddScore(score);
 			score = 0;
 			
 			UIScript.GetComponent<CropUIScript>().ResetCrops();
-			Debug.Log("Crops Reset");
+			//Debug.Log("Crops Reset");
 			
 			// reset crop count
 			/*carrotCount = 0;
@@ -214,7 +216,7 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log(score);
+            //Debug.Log(score);
         }
     }
     
@@ -232,7 +234,7 @@ public class PlayerManager : MonoBehaviour
         // check if the collider was an animal
         if(target.gameObject.tag == "Animal")
         {
-			Debug.Log("Found Animal");
+			//Debug.Log("Found Animal");
             touchingAnimal = true;
             targetAnimal = target;
             
@@ -242,7 +244,7 @@ public class PlayerManager : MonoBehaviour
 		// check if the collider was the hopper
 		if(target.gameObject.tag == "Hopper")
 		{
-			Debug.Log("Found Hopper");
+			//Debug.Log("Found Hopper");
 			touchingHopper = true;
 			
 			interactReady = true;

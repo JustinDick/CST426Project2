@@ -46,7 +46,7 @@ public class UIButtonScript : MonoBehaviour
         }
         else
         {
-            CowButton.GetComponent<Image>().color = new Color32(169,169,169,255);
+            CowButton.GetComponent<Image>().color = new Color32(100,100,100,255);
         }
         
         sheepOn = PlayerManager.sheepReady;
@@ -57,7 +57,7 @@ public class UIButtonScript : MonoBehaviour
         }
         else
         {
-            SheepButton.GetComponent<Image>().color = new Color32(169,169,169,255);
+            SheepButton.GetComponent<Image>().color = new Color32(100,100,100,255);
         }
         
         chickenOn = PlayerManager.chickenReady;
@@ -68,7 +68,7 @@ public class UIButtonScript : MonoBehaviour
         }
         else
         {
-            ChickenButton.GetComponent<Image>().color = new Color32(169,169,169,255);
+            ChickenButton.GetComponent<Image>().color = new Color32(100,100,100,255);
         }
         
         pigOn = PlayerManager.pigReady;
@@ -79,7 +79,7 @@ public class UIButtonScript : MonoBehaviour
         }
         else
         {
-            PigButton.GetComponent<Image>().color = new Color32(169,169,169,255);
+            PigButton.GetComponent<Image>().color = new Color32(100,100,100,255);
         }
         
         duckOn = PlayerManager.duckReady;
@@ -90,7 +90,7 @@ public class UIButtonScript : MonoBehaviour
         }
         else
         {
-            DuckButton.GetComponent<Image>().color = new Color32(169,169,169,255);
+            DuckButton.GetComponent<Image>().color = new Color32(100,100,100,255);
         }
     }
 }

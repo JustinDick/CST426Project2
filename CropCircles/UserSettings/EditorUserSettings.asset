@@ -18,19 +18,22 @@ EditorUserSettings:
       value: 5150515306575d0d5f56097b16250e444e154d737e2c22657d7e4a66e6e3676a
       flags: 0
     RecentlyUsedSceneGuid-4:
-      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
-      flags: 0
-    RecentlyUsedSceneGuid-5:
       value: 5652570750030c035e5a587245200e44124f1e782f7d72622c7a4467b2b63661
       flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-5:
       value: 00015707550c5d0c0858582040255d44424f48737a2a7e672b2b4e30e0b5306a
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-6:
       value: 0700040407015a0f0f5e582415265944424e412c787d22627f284a36b3b1323e
       flags: 0
-    RecentlyUsedSceneGuid-8:
+    RecentlyUsedSceneGuid-7:
       value: 525700005c5059035a575f2446205b4445154072742976677f7b4e65b0b3646a
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 010605510702080b585d0d7746200944144f1c7e7f70243679714961b0e2616e
       flags: 0
   m_VCAutomaticAdd: 1
   m_VCDebugCom: 0
