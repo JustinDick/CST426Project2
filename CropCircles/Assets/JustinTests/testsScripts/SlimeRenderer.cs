@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRenderScript : MonoBehaviour
+public class SlimeRenderer : MonoBehaviour
 {
-    
-    
     public Renderer rend;
 
     public bool isTransformed;
+    
     // Start is called before the first frame update
     void Start()
     {
         // get renderer from player
         rend = GetComponent<Renderer>();
-        rend.enabled = false;
+        rend.enabled = true;
 
         isTransformed = false;
     }
@@ -33,7 +32,7 @@ public class PlayerRenderScript : MonoBehaviour
 
         else
         {
-            rend.enabled = false;
+            rend.enabled = true;
         }
     }
 }

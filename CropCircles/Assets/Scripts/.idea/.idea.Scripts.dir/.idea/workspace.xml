@@ -17,6 +17,7 @@
     <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/RenderChanger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/RenderTestScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/SheepRender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/SlimeRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../JustinTests/testsScripts/UIButtonScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Animal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AnimalFlyweightScript.cs" root0="SKIP_HIGHLIGHTING" />
@@ -62,7 +63,7 @@
       <workItem from="1668053828465" duration="2901000" />
       <workItem from="1669703365636" duration="822000" />
       <workItem from="1669881058248" duration="10809000" />
-      <workItem from="1670462873576" duration="3605000" />
+      <workItem from="1670462873576" duration="5773000" />
     </task>
     <servers />
   </component>
